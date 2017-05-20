@@ -1,0 +1,51 @@
+html,body{
+  background-color : lightblue;
+}
+
+  .container {
+  width:550px;
+  background-color : lightblue;
+}
+
+h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  margin-left:-35px;
+}
+
+li{
+  font-size: 1.3em;
+}
+
+input.ng-invalid-number {
+  background-color: red;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+-moz-appearance: textfield;
+}
+
+
+#close {
+  float:right;
+  cursor:pointer;
+  margin-right:10px;
+}
+
+#ed {
+  cursor : pointer;
+}
+
+.inp {
+  width : 250px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>proj1</title>
+  <!--
+  <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.css">
+  <link rel="stylesheet" href="https://material.angularjs.org/1.1.4/docs.css">
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/CSS/style.css">
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script> -->
+  <!--
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+ <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+
+  <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.js"></script>
+ -->
+  <script src="/js/script.js"></script>
+  <script src="/js/controller.js"></script>
+</head>
+<body>
+  <div ng-app='shop' ng-controller='myCtrl' class= "container">
+<h2>Shopping List</h2>
+<ul>
+  <li ng-repeat="x in products"><span id="ed" ng-click = "changeState($index)">✎</span>
+    <span ng-hide="x.state"><span data-toggle="tooltip" data-placement="right" title="quantity: {{x.quantity}}" mytooltip> {{x.p}} </span> </span>
+    <input ng-show="x.state" ng-model="products[$index].p">
+    <span id="close" ng-click="remove($index)">&times;</span>
+  </li>
+</ul>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#myModal">Add Items</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">add Items</h4>
+        </div>
+        <div class="modal-body">
+          <form ng-submit="add()">
+            <div class="form-group">
+              <label for="item">Item:</label>
+              <input type='text' ng-model='new1' placeholder = "Enter item" class="form-control" id="item">
+            </div>
+            <div class="form-group">
+              <label for="quan">Quantity:</label>
+              <input type='number' min="1" ng-model='quant' placeholder = "Enter Quantity" class="form-control" id="quan">
+            </div>
+            <button type="submit" class="btn btn-default">Add!</button>
+          </form>
+<!--
+  <input ng-keypress='$event.which===13 && add()' type='text' ng-model='new' placeholder = "Enter item" class='inp'></input>
+<button ng-click="add()" class="btn btn-success" data-dismiss="modal">add</button>
+-->
+          <p class='text-danger'>{{error}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <p class='text-danger'>{{error}}</p> -->
+</div>
+</body>
+</html>
