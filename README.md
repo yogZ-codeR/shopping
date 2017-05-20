@@ -1,2 +1,2 @@
-# shopping
-shopping List App
+# Shopping
+A small shopping List App
