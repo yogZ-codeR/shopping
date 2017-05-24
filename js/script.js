@@ -1,3 +1,17 @@
+// loader starts
+var myVar;
+
+function myFunction() {
+    setTimeout(function showPage() {
+      $("#loader").hide();
+      $("#myDiv").show();
+    }, 1000);
+}
+
+// loader ends
+
+//app starts
+
 var app = angular.module('shop',[]);
 angular.element(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
